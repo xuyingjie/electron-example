@@ -4,5 +4,8 @@
   "main": "main.js",
   "devDependencies": {
     "electron-prebuilt": "^1.2.1"
+  },
+  "dependencies": {
+    "nconf": "^0.8.4"
   }
 }

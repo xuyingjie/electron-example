@@ -1,0 +1,9 @@
+html, body {
+    /*-webkit-app-region:drag;使整个html变成一个可拖动的对象。
+    点击可拖动对象里的按钮：-webkit-app-region: no-drag;能定义不可拖动（但是可以点击）的对象*/
+    -webkit-app-region: drag;
+}
+
+button {
+    -webkit-app-region: no-drag;
+}
