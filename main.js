@@ -1,10 +1,11 @@
 const electron = require('electron');
-const {app, BrowserWindow, ipcMain, globalShortcut} = electron;
+const {app, BrowserWindow, ipcMain, globalShortcut, Menu, Tray} = electron;
 
 const configuration = require('./configuration')
 
 let win;
 let settingWindow = null;
+let appIcon = null;
 
 function createWindow() {
     win = new BrowserWindow({
@@ -26,6 +27,18 @@ function createWindow() {
         configuration.saveSettings('shortcutKeys', ['ctrl', 'shift']);
     }
     createShortcut(win);
+
+
+    // Tray
+    appIcon = new Tray('./app/fluidicon.png')
+    const contextMenu = Menu.buildFromTemplate([
+        {label: 'Item1', type: 'radio'},
+        {label: 'Item2', type: 'radio'},
+        {label: 'Item3', type: 'radio', checked: true},
+        {label: 'Item4', type: 'radio'}
+    ]);
+    appIcon.setToolTip('This is my application.');
+    appIcon.setContextMenu(contextMenu);
 }
 app.on('ready', createWindow);
 
