@@ -9,22 +9,6 @@
     <button id="cha">change shortcut</button>
     <button id="close">CLOSE</button>
 
-    <script>
-        const {ipcRenderer} = require('electron')
-
-        const close = document.querySelector('#close')
-        close.addEventListener('click', () => {
-            ipcRenderer.send('close-setting-window')
-        })
-
-        // const close = document.querySelector('#cha')
-        // cha.addEventListener('click', () => {
-
-
-
-        //     ipcRenderer.send('change-shortcut')
-        // })
-        
-    </script>
+    <script src="setting.js"></script>
 </body>
 </html>
