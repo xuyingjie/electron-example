@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "main": "main.js",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.1"
+    "electron-prebuilt": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3"
   },
   "dependencies": {
     "nconf": "^0.8.4"
