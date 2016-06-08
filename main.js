@@ -1,5 +1,6 @@
 const electron = require('electron');
 const {app, BrowserWindow, ipcMain, globalShortcut, Menu, Tray} = electron;
+// const path = require('path')
 
 const configuration = require('./configuration')
 
@@ -16,7 +17,12 @@ function createWindow() {
     });
     win.loadURL(`file://${__dirname}/app/index.html`);
 
-    win.webContents.openDevTools();
+    let webContents = win.webContents
+    webContents.openDevTools()
+
+    webContents.on('dom-ready', () => {
+        webContents.executeJavaScript('require("./index.js")')
+    })
 
     win.on('closed', () => {
         win = null;
