@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>try electron</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <button id="close">CLOSE</button>
@@ -15,5 +15,11 @@
     
     <!--<script src="http://127.0.0.1:8000/in.js"></script>-->
     <!--<script src="index.js"></script>-->
+    
+    <script>
+        // 分解，模块化
+        // 尽量模块前后端通用；使用Electron&&Node API的隔离出来
+        require('./js/index')
+    </script>
 </body>
 </html>

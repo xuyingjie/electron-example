@@ -1,42 +1,47 @@
 const electron = require('electron');
 const {app, BrowserWindow, ipcMain, globalShortcut, Menu, Tray} = electron;
 // const path = require('path')
+const window = require('./window')
 
+const CONTENTS_PATH = `${__dirname}/renderer`
 const configuration = require('./configuration')
 
-let win;
+let mainWindow = null;
 let settingWindow = null;
 let appIcon = null;
 
 function createWindow() {
-    win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        frame: false,
-        resizable: false,
-    });
-    win.loadURL(`file://${__dirname}/app/index.html`);
+    // win = new BrowserWindow({
+    //     width: 800,
+    //     height: 600,
+    //     frame: false,
+    //     resizable: false,
+    // });
+    // win.loadURL(`file://${CONTENTS_PATH}/index.html`);
+    // console.log(win.id);
+    mainWindow = window.create('index')
 
-    let webContents = win.webContents
+    let webContents = mainWindow.webContents
     webContents.openDevTools()
+    // console.log(webContents.id);
 
-    webContents.on('dom-ready', () => {
-        webContents.executeJavaScript('require("./index.js")')
-    })
+    // webContents.on('dom-ready', () => {
+    //     webContents.executeJavaScript('require("./index.js")')
+    // })
 
-    win.on('closed', () => {
-        win = null;
-    });
+    // win.on('closed', () => {
+    //     win = null;
+    // });
 
 
     if (!configuration.readSettings('shortcutKeys')) {
         configuration.saveSettings('shortcutKeys', ['ctrl', 'shift']);
     }
-    createShortcut(win);
+    createShortcut(mainWindow);
 
 
     // Tray
-    appIcon = new Tray('./app/fluidicon.png')
+    appIcon = new Tray(`${CONTENTS_PATH}/fluidicon.png`)
     const contextMenu = Menu.buildFromTemplate([
         {label: 'Item1', type: 'radio'},
         {label: 'Item2', type: 'radio'},
@@ -55,7 +60,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-    if (win === null) {
+    if (mainWindow === null) {
         createWindow();
     }
 })
@@ -68,8 +73,11 @@ ipcMain.on('close-main-window', () => {
     app.quit()
 })
 
-ipcMain.on('close-setting-window', () => {
+ipcMain.on('close-setting-window', (event) => {
     if (settingWindow) {
+        let sender = event.sender // Returns the webContents that sent the message
+        var id = BrowserWindow.fromWebContents(sender).id // The unique ID of this window.
+        console.log(id);
         settingWindow.close()
     }
 })
@@ -85,10 +93,11 @@ ipcMain.on('open-setting-window', () => {
         frame: false,
         resizable: false,
     });
-    settingWindow.loadURL(`file://${__dirname}/app/setting.html`)
+    settingWindow.loadURL(`file://${CONTENTS_PATH}/setting.html`)
     settingWindow.on('closed', () => {
         settingWindow = null
     })
+    // console.log(settingWindow.id);
 })
 
 
@@ -103,3 +112,41 @@ function createShortcut(window) {
         window.webContents.send('global-shortcut', 0);
     })
 }
+
+
+
+
+// 错误处理
+try {
+    var x = 1;
+    var y = 0;
+    console.log(z);
+} catch(e) {
+    // statements
+    console.log(e.message); //z is not defined
+    console.log(e.name); //ReferenceError
+}
+
+// function CustomError (message) {
+//     this.name = "CustomError";
+//     this.message = message;
+// }
+// CustomError.prototype = new Error();
+// var somebug = new CustomError("wtf");
+class NoData extends Error {
+    constructor(msg) {
+        super()
+        this.name = 'noName'
+        this.message = msg
+    }
+}
+var somebug = new NoData('sfasdflkljjjj')
+
+try {
+    throw somebug
+} catch(e) {
+    console.log(e.name); //CustomError
+    console.log(e.message); //wtf
+    // console.log(e.stack);
+}
+
