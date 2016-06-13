@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {app, BrowserWindow, ipcMain, globalShortcut, Menu, Tray} = electron;
+const {app, ipcMain} = electron;
 const window = require('./window')
 
 let indexWindow = null;
