@@ -17,7 +17,7 @@ cha.addEventListener('click', () => {
     // ipcRenderer.send('change-shortcut')
 })
 
-// menu
+// 右键 menu
 const menu = new Menu();
 menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked'); }}));
 menu.append(new MenuItem({type: 'separator'}));
