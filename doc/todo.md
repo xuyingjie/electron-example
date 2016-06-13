@@ -5,7 +5,10 @@
 - ArrayBuffer
 
 
-
+## tools
+- vscode typings
+- git
+- mocha
 
 ## debug
 - vscode `Main Process` debug
