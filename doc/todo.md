@@ -44,6 +44,12 @@
 ## web workers
 process & thread
 
+## event
+- event driven || data driven
+- web 自定义事件： Event, CustomEvent
+  https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
+  http://api.jquery.com/on/
+- https://github.com/component/emitter/blob/master/index.js
 
 ## try catch
 
