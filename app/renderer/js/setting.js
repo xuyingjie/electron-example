@@ -12,7 +12,7 @@ const cha = document.querySelector('#cha')
 cha.addEventListener('click', () => {
 
     let win = new BrowserWindow({ width: 800, height: 600 })
-    win.loadURL('https://github.com')
+    win.loadURL('http://html5test.com/')
 
     // ipcRenderer.send('change-shortcut')
 })

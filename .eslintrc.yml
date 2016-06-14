@@ -14,7 +14,7 @@ rules:
     - error
     - unix
   quotes:
-    - error
+    - off
     - single
   comma-dangle:
     - off

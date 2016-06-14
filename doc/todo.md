@@ -1,3 +1,9 @@
+# Style Guide
+- "use strict"  // 类和模块的内部，默认就是严格模式
+- require       // es6 modules都不支持；IIFE unnecessary
+
+
+## ????
 - 阅读代码 代码结构 分解 - js组织
 - ~~webcontents require 加载~~
 - ~~模块 多页面事件如何合并源码(单页面应用用已有框架)~~
@@ -9,6 +15,7 @@
 - vscode typings
 - git
 - mocha
+- eslint http://eslint.cn/
 
 ## debug
 - vscode `Main Process` debug
@@ -33,6 +40,9 @@
 
 // webpack 用 webpackBootstrap。
 ```
+
+## web workers
+process & thread
 
 
 ## try catch
