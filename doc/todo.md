@@ -4,9 +4,10 @@
 
 
 ## ????
+- 数据驱动开发的示例
 - 阅读代码 代码结构 分解 - js组织
 - ~~webcontents require 加载~~
-- ~~模块 多页面事件如何合并源码(单页面应用用已有框架)~~
+- ~~模块 多页面事件如何合并源码(单页面应用用已有框架)(迁移到web端：尽量少使用依赖node环境的包,最后用`webpack`打包`CommonJS`标准的源码)~~
 - gis
 - ArrayBuffer
 
@@ -33,6 +34,7 @@
 ## require & webpack
 - use `CommonJS`
 - `webpack` 用于前端打包
+
 ```
 // Electron's require 会自动用一个匿名函数包裹
 (function (exports, require, module, __filename, __dirname, process, global) {
@@ -54,11 +56,6 @@ process & thread
 ## try catch
 
 
-## ???
-- 是否迁移到web端(尽量少使用依赖node环境的包,最后用`webpack`打包`CommonJS`标准的源码)
-
-
-
 ## article
 代码组织及合并压缩（无框架，各页面事件合并？）
 
@@ -77,4 +74,27 @@ gulp.task('compress', function() {
 })
 
 gulp.task('default', ['compress'])
+```
+
+```
+// 40 7
+let sum = 0;
+let start = 7;
+for (let i = 0; i < 40; i++) {
+    let r = i&1 ? 1 : 1
+    if (sum >= 150) sum += start*r*0.5
+    else if (sum >= 100) sum += start*r*0.8
+    else sum += start*r
+}
+console.log(sum);
+
+//
+let origin = new Array(40).fill(7)
+let sum0 = origin.reduce((sum, v, k) => {
+    let r = k&1 ? 1 : 0.7
+    if (sum >= 150) return sum + v*r*0.5
+    else if (sum >= 100) return sum + v*r*0.8
+    else return sum + v*r
+}, 0)
+console.log(sum0)
 ```

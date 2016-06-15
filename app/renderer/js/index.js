@@ -59,27 +59,26 @@ fibonacci.addEventListener('click', () => {
 //     m.dispatchEvent(event)
 // })
 
-// model.on('log.user', _fn_log_user);
-// model.emit('log.user', msg);
-let ev = {
-    name: [],
-    cb: [],
-    on(name, cb) {
-        this.name.push(name)
-        this.cb.push(cb)
-    },
-    emit(name, msg) {
-        console.log(this.name);
-        this.name.forEach((v, k) => {
-            if (v === name) {
-                console.log(this.cb[k]);
-                this.cb[k].call(null, msg)
-            }
-        })
+// https://github.com/component/emitter/blob/master/index.js
+class Ev {
+    constructor() {
+        this._callbacks = {}
+    }
+    on(event, cb) {
+        (this._callbacks['$'+event] = this._callbacks['$'+event] || []).push(cb)
+    }
+    emit(event) {
+        let args = [].slice.call(arguments, 1)
+        let callbacks = this._callbacks['$'+event]
+        if (callbacks) {
+            callbacks.forEach((v, k) => {
+                callbacks[k].apply(this, args)
+            })
+        }
     }
 }
-ev.on('log.user', console.log)
-console.log(ev);
+let ev = new Ev
+ev.on('log.user', (msg) => console.log(msg))
 const customEvent = document.querySelector('#custom-event')
 customEvent.addEventListener('click', () => {
     ev.emit('log.user', 'hello events.')
