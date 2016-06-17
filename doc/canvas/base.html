@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+    <div id="stage">
+        <canvas id="first"></canvas>
+    </div>
+    
+
+    <script>
+
+        //
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+        //
+
+        var canvas = document.getElementById('first')
+        var ctx = canvas.getContext("2d")
+
+        ctx.fillStyle = "rgba(200, 0 , 0, 0.5)"
+        ctx.fillRect(25,25,100,100) //绘制一个填充的矩形
+        ctx.clearRect(45,45,60,60) //清除指定矩形区域，让清除部分完全透明。
+        ctx.strokeRect(50,50,50,50) //绘制一个矩形的边框
+
+
+
+        // var scaleX = canvas.width / window.innerWidth;
+        // var scaleY = canvas.height / window.innerHeight;
+
+        // var scaleToFit = Math.min(scaleX, scaleY);
+        // var scaleToCover = Math.max(scaleX, scaleY);
+
+        // var stage = document.getElementById('stage')
+        // stage.style.transformOrigin = "0 0"; //scale from top left
+        // stage.style.transform = "scale(" + scaleToFit + ")";
+    </script>
+</body>
+</html>

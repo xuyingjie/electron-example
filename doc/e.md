@@ -12,3 +12,5 @@ workbench
 recursive
 discouraged
 reduce
+projection
+shaper

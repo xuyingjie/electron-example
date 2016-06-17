@@ -9,7 +9,9 @@
 - ~~webcontents require 加载~~
 - ~~模块 多页面事件如何合并源码(单页面应用用已有框架)(迁移到web端：尽量少使用依赖node环境的包,最后用`webpack`打包`CommonJS`标准的源码)~~
 - gis
-- ArrayBuffer
+- ArrayBuffer (canvas)
+- Drag and drop
+- Canvas and D3.js
 
 
 ## tools
@@ -17,6 +19,7 @@
 - git
 - mocha
 - eslint http://eslint.cn/
+- (http-server)[https://www.npmjs.com/package/http-server]
 
 ## debug
 - vscode `Main Process` debug
@@ -98,3 +101,5 @@ let sum0 = origin.reduce((sum, v, k) => {
 }, 0)
 console.log(sum0)
 ```
+
+url = url.replace(/^\w+(?=:)/, (m) => m.toUpperCase())

@@ -1,3 +1,5 @@
+快捷键：http://nshen.net/article/2015-11-20/vscode/
+
 终端：Ctrl+`
 
 ## debug electron
