@@ -29,6 +29,7 @@ function zoom() {
 }
 function  draw() {
     d3.json('../../tmp/china_province1.json', (err, state) => {
+        let begin = Date.now()
         ctx.beginPath()
         path(topojson.feature(state, state.objects.china_province))
         ctx.fillStyle = '#dcd8d2'
@@ -36,6 +37,8 @@ function  draw() {
         ctx.lineWidth = '1'
         ctx.strokeStyle = '#c9c4bc'
         ctx.stroke()
+        let diff = Date.now() - begin
+        console.log(diff)
     })
 }
 
