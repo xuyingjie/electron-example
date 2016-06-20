@@ -12,6 +12,8 @@
 - ArrayBuffer (canvas)
 - Drag and drop
 - Canvas and D3.js
+    - geojson -> canvas
+    - micaps -> custom json -> canvas
 
 
 ## tools
