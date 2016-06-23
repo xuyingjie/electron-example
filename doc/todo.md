@@ -11,9 +11,19 @@
 - gis
 - ArrayBuffer (canvas)
 - Drag and drop
-- Canvas and D3.js
+- Canvas and D3.js [https://github.com/NelsonMinar/vector-river-map/blob/master/clients/lib/TileLayer.d3_geoJSON.js]
     - geojson -> canvas
     - micaps -> custom json -> canvas
+- geojson, topojson, micaps 数据格式规范
+
+
+## View.js
+<Workbench>
+    <Tree></Tree>
+    <Renderer></Renderer>
+    if <MapConfig></MapConfig>
+    if <DataConfig></DataConfig>
+</Workbench>
 
 
 ## tools
@@ -21,11 +31,13 @@
 - git
 - mocha
 - eslint http://eslint.cn/
-- (http-server)[https://www.npmjs.com/package/http-server]
+- [http-server](https://www.npmjs.com/package/http-server)
 
 ## debug
 - vscode `Main Process` debug
 - executeJavaScript `Renderer Process` debug
+- Profiles
+    https://www.gitbook.com/book/leeon/devtools/details
 
 ## 安全
 - web脚本中可以调用node api
@@ -59,7 +71,20 @@ process & thread
 - https://github.com/component/emitter/blob/master/index.js
 
 ## try catch
-
+https://github.com/petkaantonov/bluebird/wiki/Optimization-killers
+Currently not optimizable:
+    Generator functions
+    Functions that contain a for-of statement
+    Functions that contain a try-catch statement
+    Functions that contain a try-finally statement
+    Functions that contain a compound let assignment
+    Functions that contain a compound const assignment
+    Functions that contain object literals that contain __proto__, or get or set declarations.
+Likely never optimizable:
+    Functions that contain a debugger statement
+    Functions that call literally eval()
+    Functions that contain a with statement
+    
 
 ## article
 代码组织及合并压缩（无框架，各页面事件合并？）

@@ -14,3 +14,6 @@ discouraged
 reduce
 projection
 shaper
+coordinates
+geometry
+Profiles
