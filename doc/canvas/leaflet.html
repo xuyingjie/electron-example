@@ -5,7 +5,7 @@
     <title>Leaflet</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-rc.1/leaflet.css" />
     <style>
-        #mapid { height: 400px; }
+        #mapid { height: 600px; }
     </style>
 </head>
 <body>
@@ -18,8 +18,14 @@
     <script>
 
         var mymap = L.map('mapid', {
-            renderer: L.canvas()
-        }).setView([34, 108], 5);
+            preferCanvas: true,
+            center: [34, 108],
+            zoom: 5,
+            zoomSnap: 0.1,
+            zoomDelta: 0.5,
+            wheelPxPerZoomLevel: 200,
+            // smoothFactor: 0
+        });
 
         // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
 		// 	maxZoom: 18,
@@ -62,11 +68,11 @@
             // fillColor
         }
 
-        $.getJSON('http://127.0.0.1:8080/tmp/world-50m.json', function(data) {
-            L.topoJson(data, {
-                style
-            }).addTo(mymap)
-        })
+        // $.getJSON('http://127.0.0.1:8080/tmp/world-50m.json', function(data) {
+        //     L.topoJson(data, {
+        //         style
+        //     }).addTo(mymap)
+        // })
 
         $.getJSON('http://127.0.0.1:8080/tmp/china_province.json', function(data) {
             L.geoJson(data, {

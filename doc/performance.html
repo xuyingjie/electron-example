@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance</title>
+</head>
+<body>
+    
+    <script>
+let start = Date.now()
+
+        let arr = []
+        for(let i = 0; i<1000; i++) {
+            arr[i] = [i, i+1]
+            // arr[i] = {x:i, y:i+1}
+        }
+        // arr.forEach(x => {
+        //     x[0] + x[1]
+        //     // x.x + x.y
+        // })
+
+let diff = Date.now() - start
+console.log(diff)
+
+
+
+
+        
+    </script>
+</body>
+</html>

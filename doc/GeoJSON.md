@@ -1,6 +1,7 @@
 # GeoJSON
 http://geojson.org/geojson-spec.html
 https://en.wikipedia.org/wiki/GeoJSON
+http://blog.xcatliu.com/2015/04/24/geojson-and-topojson/
 
 GeoJSON is a format for encoding a variety of geographic data structures. A GeoJSON object may represent a geometry, a feature, or a collection of features. GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection. Features in GeoJSON contain a geometry object and additional properties, and a feature collection represents a list of features.
 

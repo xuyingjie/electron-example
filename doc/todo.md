@@ -63,6 +63,11 @@
 ## web workers
 process & thread
 
+## WebAssembly
+    https://github.com/WebAssembly/design
+### asm.js
+    https://github.com/kripken/emscripten
+
 ## event
 - event driven || data driven
 - web 自定义事件： Event, CustomEvent
@@ -84,6 +89,8 @@ Likely never optimizable:
     Functions that contain a debugger statement
     Functions that call literally eval()
     Functions that contain a with statement
+
+## requestAnimationFrame
     
 
 ## article
