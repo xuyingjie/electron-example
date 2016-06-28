@@ -54,3 +54,10 @@ GeoJSON is a format for encoding a variety of geographic data structures. A GeoJ
 
 // TopoJSON
 https://github.com/mbostock/topojson-specification/blob/master/README.md
+
+https://github.com/mbostock/topojson/wiki/Command-Line-Reference
+`npm i -g topojson`
+`topojson -o output.json input.json`
+
+https://github.com/mbostock/topojson/wiki/API-Reference
+`topojson.mesh(china, china.objects.china_province, function(a, b) { return a === b; })`
