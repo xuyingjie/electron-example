@@ -58,6 +58,9 @@ https://github.com/mbostock/topojson-specification/blob/master/README.md
 https://github.com/mbostock/topojson/wiki/Command-Line-Reference
 `npm i -g topojson`
 `topojson -o output.json input.json`
+// use pre-projected geometry render fast. d3.geo.mercator() is heavy.
+// no need. load topojson file and then use projection(point) transform.
+` topojson -o china_p.json china_province.json --projection 'd3.geo.mercator()'`
 
 https://github.com/mbostock/topojson/wiki/API-Reference
 `topojson.mesh(china, china.objects.china_province, function(a, b) { return a === b; })`

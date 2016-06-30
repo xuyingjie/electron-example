@@ -11,7 +11,7 @@
 - gis
 - ArrayBuffer (canvas)
 - Drag and drop
-- Canvas and D3.js [https://github.com/NelsonMinar/vector-river-map/blob/master/clients/lib/TileLayer.d3_geoJSON.js]
+- Canvas and D3.js
     - geojson -> canvas
     - micaps -> custom json -> canvas
 - geojson, topojson, micaps 数据格式规范

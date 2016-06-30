@@ -62,6 +62,7 @@ git checkout --
 
 // 撤销最后一次提交
 git reset HEAD~1
+git push --force
 
 // 假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它
 git fetch origin
