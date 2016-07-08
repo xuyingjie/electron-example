@@ -55,7 +55,7 @@ d3.json("../../tmp/world-50m.json", function(error, world) {
         // path(topojson.mesh(china, china.objects.china_province)) // 420ms   
         
         // separating interior and exterior boundaries
-        let interior = topojson.mesh(china, china.objects.china_province, function(a, b) { return a !== b; })   // 50ms
+        let interior = topojson.mesh(china, china.objects.china_province)   // 50ms
         interior = _projection(interior)
         let exterior = topojson.mesh(china, china.objects.china_province, function(a, b) { return a === b; })   // 110ms
         exterior = _projection(exterior)
@@ -88,11 +88,7 @@ d3.json("../../tmp/world-50m.json", function(error, world) {
             context.beginPath()
             context.strokeStyle = "#c8c8c8"
             path(countries)
-            context.stroke()
-            
-            context.beginPath()
-            context.strokeStyle = "#444444"
-            path(interior)
+            context.fill()
             context.stroke()
 
             context.beginPath()
@@ -104,6 +100,12 @@ d3.json("../../tmp/world-50m.json", function(error, world) {
             path(exterior)
             context.stroke()
             context.restore()
+
+            context.beginPath()
+            context.strokeStyle = "#444444"
+            path(interior)
+            context.fill()
+            context.stroke()
 
             console.log(Date.now() - begin)  // 320ms
         }

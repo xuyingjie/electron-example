@@ -1,0 +1,13 @@
+extends ./layout
+
+block content
+	div(class="row")
+		if success
+			p #{success}
+			p= success
+		form(method="post" action="")
+			input(type="text" value="#{name}" name="name")
+
+block script
+	script.
+		let jade = ''

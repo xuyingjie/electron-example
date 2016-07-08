@@ -32,6 +32,7 @@
 - mocha
 - eslint http://eslint.cn/
 - [http-server](https://www.npmjs.com/package/http-server)
+- http://asciiflow.com/
 
 ## debug
 - vscode `Main Process` debug
@@ -96,6 +97,8 @@ Likely never optimizable:
 ## article
 代码组织及合并压缩（无框架，各页面事件合并？）
 
+## http
+## sql
 
 ## OTHER
 ```
