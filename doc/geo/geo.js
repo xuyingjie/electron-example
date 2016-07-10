@@ -16,14 +16,14 @@
 var width = 800,
     height = 800;
 
-var projection = d3.geo.mercator()
+var projection = d3.geoMercator()
     .center([104, 36])
     .scale(600)
     .translate([width/2, height/2]);
 
-var zoom = d3.behavior.zoom()
-    .translate([0, 0])
-    .scale(1)
+var zoom = d3.zoom()
+    // .translate([0, 0])
+    // .scale(1)
     // .scaleExtent([1, 8])
 
 var canvas = d3.select("body").append("canvas")
@@ -33,7 +33,7 @@ var canvas = d3.select("body").append("canvas")
 var context = canvas.node().getContext("2d");
 context.fillStyle = "#ffffff";
 
-var path = d3.geo.path()
+var path = d3.geoPath()
     .projection(null)
     .context(context);
 
@@ -66,16 +66,18 @@ d3.json("../../tmp/world-50m.json", function(error, world) {
         
         canvas
             .call(zoom.on("zoom", zoomed))
-            .call(zoom.event)
+            // .call(zoom.event)
+        draw()
         
         function zoomed() {
             context.clearRect(0, 0, width, height)
             context.save()
 
             // console.log(d3.event)
-            context.translate(d3.event.translate[0], d3.event.translate[1])
-            context.scale(d3.event.scale, d3.event.scale)
-            context.lineWidth = 1 / d3.event.scale
+            let e = d3.event
+            context.translate(e.transform.x, e.transform.y)
+            context.scale(e.transform.k, e.transform.k)
+            context.lineWidth = 1 / e.transform.k
             // projection.scale(d3.event.scale)
 
             draw()
