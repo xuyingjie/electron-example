@@ -10,11 +10,13 @@
 - ~~模块 多页面事件如何合并源码(单页面应用用已有框架)(迁移到web端：尽量少使用依赖node环境的包,最后用`webpack`打包`CommonJS`标准的源码)~~
 - gis
 - ArrayBuffer (canvas)
-- Drag and drop
+- Drag and drop (html5)
 - Canvas and D3.js
     - geojson -> canvas
     - micaps -> custom json -> canvas
 - geojson, topojson, micaps 数据格式规范
+- topological-sort
+- SVG maximum number
 
 
 ## View.js
@@ -39,6 +41,8 @@
 - executeJavaScript `Renderer Process` debug
 - Profiles
     https://www.gitbook.com/book/leeon/devtools/details
+- chrome://net-internals/
+    http://div.io/topic/609?page=1
 
 ## 安全
 - web脚本中可以调用node api
@@ -66,6 +70,8 @@ process & thread
 
 ## WebAssembly
     https://github.com/WebAssembly/design
+
+    http://mbebenita.github.io/WasmExplorer/
 ### asm.js
     https://github.com/kripken/emscripten
 
@@ -140,3 +146,11 @@ console.log(sum0)
 ```
 
 url = url.replace(/^\w+(?=:)/, (m) => m.toUpperCase())
+
+```
+var tmpl = rows.filter(function(el, i) {
+    return first <= i && i < end;
+}).reduce(function(tmpl, x) {
+    return tmpl + tr(x);
+}, tmpl);
+```

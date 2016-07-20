@@ -18,4 +18,10 @@ coordinates
 Geometry
 Atmospheric
 Meteorology
+Meteorological Administration
 Profiles
+internals
+I consider myself a realist, but in philosophical terms I'm a pessimist.
+closest
+twice
+mysql
