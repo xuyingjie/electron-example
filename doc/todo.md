@@ -1,3 +1,18 @@
+
+- Module (parsers template, bind `@click` event)
+    - require.js
+    - Vue 2.0 source code
+
+- SQL
+
+- SVG performance
+
+- Projection processing
+
+
+#############################################################################################################################################
+
+
 # Style Guide
 - "use strict"  // 类和模块的内部，默认就是严格模式
 - require       // es6 modules都不支持；IIFE unnecessary
@@ -52,10 +67,13 @@
 - nodejs es6 module: Keep in mind that there is no JavaScript engine yet that natively supports ES6 modules.
 - uglify: https://github.com/mishoo/UglifyJS2/issues/448
   `webpack -p` used `uglify`
+- http://babeljs.io/repl/
 
 ## require & webpack
 - use `CommonJS`
 - `webpack` 用于前端打包
+- AMD `Asynchronous Module Definition`
+    `require([module], callback)`
 
 ```
 // Electron's require 会自动用一个匿名函数包裹
